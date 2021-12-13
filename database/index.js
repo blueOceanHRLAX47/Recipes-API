@@ -52,7 +52,7 @@ const Recipe = sequelize.define('recipes', {
   calories: {
     type: DataTypes.INTEGER,
   },
-  protien: {
+  protein: {
     type: DataTypes.INTEGER,
   },
   fat: {
@@ -66,6 +66,9 @@ const Recipe = sequelize.define('recipes', {
   },
   likes: {
     type: DataTypes.INTEGER,
+  },
+  spoon_recipe_id: {
+    type: DataTypes.INTEGER,
   }
 }, {
   timestamp: false,
@@ -74,7 +77,7 @@ const Recipe = sequelize.define('recipes', {
 })
 
 
-const SavedRecipe = sequelize.define('SavedRecipe', {
+const SavedRecipe = sequelize.define('saved_recipes', {
   user_id: {
     type: DataTypes.INTEGER,
   },
@@ -88,7 +91,7 @@ const SavedRecipe = sequelize.define('SavedRecipe', {
     type: DataTypes.DATE,
   }
 }, {
-  tableName: 'saved_recipes',
+  // tableName: 'saved_recipes',
   timestamp: false,
   createdAt: false,
   updatedAt: false
@@ -97,19 +100,7 @@ const SavedRecipe = sequelize.define('SavedRecipe', {
 
 
 
-
-// Recipe.hasMany(SavedRecipe);
-
-// Recipe.hasMany(SavedRecipe, {
-//   foreignKey: 'recipe_id'
-// });
 SavedRecipe.belongsTo(Recipe, { foreignKey: 'recipe_id' });
-
-
-// Recipe.belongsTo(SavedRecipe, { foreignKey: 'recipe_id' });
-
-// const recipes = Recipe.findAll({ include: SavedRecipe });
-// console.log(JSON.stringify(recipes, null, 1));
 
 
 
