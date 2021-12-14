@@ -47,7 +47,8 @@ const controller = {
           summary: response.data.summary,
           popularity_score: response.data.spoonacularScore,
           likes: response.data.aggregateLikes,
-          spoon_recipe_id: response.data.id
+          spoon_recipe_id: response.data.id,
+          readyInMinutes: response.data.readyInMinutes
         }
         callback(null, res)
       })
