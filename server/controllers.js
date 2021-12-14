@@ -12,9 +12,11 @@ const config = {
 
 const controller = {
   getRecipes: (data, callback) => {
-    let { stuff } = data;
-
-    let url = `${apiUrlSearch}?apiKey=${SpoonacularAPIKey}&${stuff}=${stuff}`
+    let query = data.query;
+    let diet= data.diet;
+    let intolerances = data.intolerances;
+    console.log(data.query)
+    let url = `${apiUrlSearch}?apiKey=${SpoonacularAPIKey}&query=${query}&diet==${diet}&intolerances=${intolerances}&instructionsRequired=true`
     axios.get(url, config)
       .then(response => { callback(null, response) })
       .catch(err => { callback(err) })
