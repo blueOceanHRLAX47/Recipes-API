@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const { sequelize, Recipe, SavedRecipe } = require('../database');
 const { SpoonacularAPIKey } = require('../config.js');
 const controller = require('./controllers.js');
-const port = 3001;
+const port = 3002;
 
 
 app.use(cors());
@@ -14,6 +14,7 @@ app.use(express.json());
 
 
 app.get('/recipes', (req, res) => {
+  console.log('here', req.query)
   controller.getRecipes(req.query, (error, results) => {
     if (error) {
       res.status(400).send(error);
@@ -21,6 +22,13 @@ app.get('/recipes', (req, res) => {
       res.status(201).send(results.data);
     }
   });
+});
+
+
+///// Database End Point
+app.get('/', (req, res) => {
+  Recipe.findAll()
+    .then(recipes => res.send(recipes))
 });
 
 app.get('/oneRecipe', (req, res) => {

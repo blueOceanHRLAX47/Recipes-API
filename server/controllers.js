@@ -16,10 +16,13 @@ const controller = {
     let diet= data.diet;
     let intolerances = data.intolerances;
     let sort = data.sort;
-    console.log(data.query)
+    console.log(data)
     let url = `${apiUrlSearch}?apiKey=${SpoonacularAPIKey}&query=${query}&diet=${diet}&intolerances=${intolerances}&sort=popularity&instructionsRequired=true`
     axios.get(url, config)
-      .then(response => { callback(null, response) })
+      .then(response => {
+        // console.log(response)
+        callback(null, response)
+      })
       .catch(err => { callback(err) })
   },
 
