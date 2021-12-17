@@ -52,8 +52,10 @@ app.get('/oneRecipeNutrition', (req, res) => {
 });
 
 app.get('/savedRecipes', (req, res) => {
+  console.log(req.query)
+  const user_id = req.query.user_id;
   SavedRecipe.findAll({
-    include: Recipe
+    where: { user_id: user_id }
   })
     .then(recipes => res.send(recipes))
     .catch(error => res.send(error))
