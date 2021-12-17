@@ -19,17 +19,17 @@ app.get('/recipes', (req, res) => {
     if (error) {
       res.status(400).send(error);
     } else {
+      console.log(results.data)
       res.status(201).send(results.data);
     }
   });
 });
 
-
 ///// Database End Point
-app.get('/', (req, res) => {
-  Recipe.findAll()
-    .then(recipes => res.send(recipes))
-});
+// app.get('/', (req, res) => {
+//   Recipe.findAll()
+//     .then(recipes => res.send(recipes))
+// });
 
 app.get('/oneRecipe', (req, res) => {
   controller.getOneRecipe(req.query, (error, results) => {
@@ -64,10 +64,10 @@ app.post('/savedRecipes', (req, res) => {
     .then(recipe => res.send(recipe))
 });
 
-// app.post('/recipes', (req, res) => {
-//   Recipe.create(req.body)
-//     .then(recipe => res.send(recipe))
-// });
+app.post('/addRecipe', (req, res) => {
+  Recipe.create(req.body)
+    .then(recipe => res.send(recipe))
+});
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
