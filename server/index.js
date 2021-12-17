@@ -56,17 +56,20 @@ app.get('/savedRecipes', (req, res) => {
     include: Recipe
   })
     .then(recipes => res.send(recipes))
+    .catch(error => res.send(error))
 });
 
 app.post('/savedRecipes', (req, res) => {
   console.log(req.body)
   SavedRecipe.create(req.body)
     .then(recipe => res.send(recipe))
+    .catch(error => res.send(error))
 });
 
 app.post('/addRecipe', (req, res) => {
   Recipe.create(req.body)
     .then(recipe => res.send(recipe))
+    .catch(error => res.send(error))
 });
 
 app.listen(port, () => {
