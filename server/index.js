@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const { sequelize, Recipe, SavedRecipe } = require('../database');
 const { SpoonacularAPIKey } = require('../config.js');
 const controller = require('./controllers.js');
-const port = 3001;
+const port = 3002;
 
 
 app.use(cors());

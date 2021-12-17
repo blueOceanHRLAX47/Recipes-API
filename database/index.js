@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 const DataTypes = require('sequelize')
 
 const sequelize = new Sequelize('fbc', 'postgres', 'postgres', {
-  host: '10.49.144.4',
-  // host: '35.236.62.7',
+  // host: '10.49.144.4',
+  host: '35.236.62.7',
   dialect: 'postgres'
 });
 
@@ -85,14 +85,14 @@ const SavedRecipe = sequelize.define('saved_recipes', {
   user_id: {
     type: DataTypes.INTEGER,
   },
-  recipe_id: {
-    type: DataTypes.INTEGER,
-  },
   added_to_calendar: {
     type: DataTypes.BOOLEAN,
   },
   date_on_calendar: {
     type: DataTypes.DATE,
+  },
+  spoon_recipe_id: {
+    type: DataTypes.INTEGER,
   }
 }, {
   // tableName: 'saved_recipes',
