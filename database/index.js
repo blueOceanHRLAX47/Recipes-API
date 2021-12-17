@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 const DataTypes = require('sequelize')
 
 const sequelize = new Sequelize('fbc', 'postgres', 'postgres', {
-  // host: '10.49.144.4',
-  host: '35.236.62.7',
+  host: '10.49.144.4',
+  // host: '35.236.62.7',
   dialect: 'postgres'
 });
 
