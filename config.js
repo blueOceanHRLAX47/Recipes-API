@@ -1,5 +1,5 @@
 const SpoonacularAPI = {
-  SpoonacularAPIKey: '9ee2b1a6267d4b85b82fc287fd190b77'
+  SpoonacularAPIKey: '4c8dd23936224bc2948e5f669b9fd0da'
 };
 
 
